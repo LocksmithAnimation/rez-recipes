@@ -21,13 +21,18 @@ description = \
     An integrated package configuration, build and deployment system for software.
     """
 
-@early()
-def variants():
-    py_ver = this._python_version()
-    py_major = py_ver.split('.')[0]
-    return [
-        ["python-%s" % py_major]
-    ]
+# @early()
+# def variants():
+#     py_ver = this._python_version()
+#     py_major = py_ver.split('.')[0]
+#     return [
+#         ["python-%s" % py_major]
+#     ]
+
+variants = [
+    ["python-2"],
+    ["python-3"],
+]
 
 uuid = "recipes.rez"
 
@@ -61,13 +66,13 @@ def _version():
     return txt.split()[-1]
 
 
-def _python_version():
-    from rez.package_py_utils import exec_python
+# def _python_version():
+#     from rez.package_py_utils import exec_python
 
-    out = exec_python(
-        "_python_version",
-        ["import sys",
-         "print sys.version.split()[0]"],
-         executable="rez-python")
+#     out = exec_python(
+#         "_python_version",
+#         ["import sys",
+#          "print sys.version.split()[0]"],
+#          executable="rez-python")
 
-    return out
+#     return out
