@@ -69,10 +69,11 @@ def _version():
 # def _python_version():
 #     from rez.package_py_utils import exec_python
 
-#     out = exec_python(
-#         "_python_version",
-#         ["import sys",
-#          "print sys.version.split()[0]"],
-#          executable="rez-python")
+    out = exec_python(
+        "_python_version",
+        ["from __future__ import print_function",
+         "import sys",
+         "print(sys.version.split()[0])"],
+         executable="rez-python")
 
 #     return out
